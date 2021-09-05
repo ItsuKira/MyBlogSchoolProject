@@ -1,5 +1,4 @@
 import smtplib
-import requests
 from flask import Flask, render_template, redirect, url_for, flash, request, abort
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
@@ -15,11 +14,11 @@ from functools import wraps
 import os
 import gunicorn
 
-MY_EMAIL = os.environ.get("MY_EMAIL",  "itsusapptestemail@gmail.com")
-MY_PASSWORD = os.environ.get("MY_PASSWORD",  "TesT3m@il")
+MY_EMAIL = os.environ.get("MY_EMAIL")
+MY_PASSWORD = os.environ.get("MY_PASSWORD")
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '$#$%$1tsukush11L0v3sB00b13s!!!')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 ckeditor = CKEditor(app)
 Bootstrap(app)
 

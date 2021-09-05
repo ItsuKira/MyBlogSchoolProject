@@ -15,7 +15,7 @@ import os
 import gunicorn
 
 MY_EMAIL = "itsusapptestemail@gmail.com"
-MY_PASSWORD = os.environ.get("MY_PASSWORD")
+MY_PASSWORD = os.environ.get("MY_PASSWORD", "TesT3m@il")
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
@@ -199,7 +199,7 @@ def contact():
     if request.method == 'POST':
         with smtplib.SMTP("smtp.gmail.com") as connection:
             connection.starttls()
-            connection.login(user=MY_EMAIL, password=os.environ.get("MY_PASSWORD"))
+            connection.login(user=MY_EMAIL, password=MY_PASSWORD)
             connection.sendmail(
                 from_addr=MY_EMAIL,
                 to_addrs=MY_EMAIL,

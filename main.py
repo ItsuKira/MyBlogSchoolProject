@@ -15,7 +15,7 @@ import os
 import gunicorn
 
 MY_EMAIL = "itsusapptestemail@gmail.com"
-MY_PASSWORD = os.environ.get("MY_PASSWORD", "TesT3m@il")
+MY_PASSWORD = os.environ.get("MY_PASSWORD")
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')

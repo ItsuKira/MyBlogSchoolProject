@@ -14,7 +14,7 @@ from functools import wraps
 import os
 import gunicorn
 
-MY_EMAIL = os.environ.get("MY_EMAIL")
+MY_EMAIL = "itsusapptestemail@gmail.com"
 MY_PASSWORD = os.environ.get("MY_PASSWORD")
 
 app = Flask(__name__)
@@ -197,13 +197,9 @@ def about():
 def contact():
     form=ContactForm()
     if request.method == 'POST':
-        print(request.form["name"])
-        print(request.form["email"])
-        print(request.form["phone"])
-        print(request.form["message"])
         with smtplib.SMTP("smtp.gmail.com") as connection:
             connection.starttls()
-            connection.login(user=MY_EMAIL, password=MY_PASSWORD)
+            connection.login(user=MY_EMAIL, password=os.environ.get("MY_PASSWORD"))
             connection.sendmail(
                 from_addr=MY_EMAIL,
                 to_addrs=MY_EMAIL,

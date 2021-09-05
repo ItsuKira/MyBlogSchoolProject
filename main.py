@@ -10,6 +10,7 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, cur
 from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 from flask_gravatar import Gravatar
 from functools import wraps
+import email_validator
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
@@ -86,7 +87,7 @@ class Comment(db.Model):
 
 #Line below only required once, when creating DB.
 #Create all the tables in the database
-# db.create_all()
+db.create_all()
 
 
 

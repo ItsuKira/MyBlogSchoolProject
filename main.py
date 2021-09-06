@@ -197,7 +197,7 @@ def about():
 def contact():
     form=ContactForm()
     if request.method == 'POST':
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as connection:
+        with smtplib.SMTP("smtp.gmail.com") as connection:
             connection.starttls()
             connection.login(user=MY_EMAIL, password=MY_PASSWORD)
             connection.sendmail(
